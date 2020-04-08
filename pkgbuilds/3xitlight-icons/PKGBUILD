@@ -1,0 +1,28 @@
+# Maintainer: 3XITLiGHT <3xitlight@gmail.com>
+
+_gitname=3xitlight-icons
+_autor=3xitlight
+pkgname=3xitlight-icons
+pkgver=r3.0f23f15
+pkgrel=1
+pkgdesc="3xitlight's fav icons."
+arch=('any')
+url="https://github.com/${_autor}/${_gitname}"
+license=('unknown')
+options=('!strip')
+provides=("3xitlight-icons")
+conflicts=("3xitlight-icons")
+source=("git+${url}.git")
+sha256sums=('SKIP')
+
+pkgver() {
+    cd "${_gitname}"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+	install -d ${pkgdir}/usr/share/icons
+    cp -r ${_gitname}/DarK ${pkgdir}/usr/share/icons/
+    find ${pkgdir}/usr -type f -exec chmod 644 {} \;
+    find ${pkgdir}/usr -type d -exec chmod 755 {} \;
+}
