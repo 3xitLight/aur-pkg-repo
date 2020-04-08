@@ -18,7 +18,7 @@ vdhcoapp
 #### manage with repoctl:
 
 `
-repoctl new config <[path/to/aur-pkg-repo]>/aur-pkg-repo.db.tar.xz && repoctl update
+$ repoctl new config <[path/to/aur-pkg-repo]>/aur-pkg-repo.db.tar.xz && repoctl update
 `
 
 ```
