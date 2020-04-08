@@ -23,7 +23,7 @@ $ repoctl new config </path/to/aur-pkg-repo>/aur-pkg-repo.db.tar.xz && repoctl u
 
 #### remove db's and redownload them:
 `
-sudo rm -r /var/lib/pacman/* 
+sudo rm -r /var/lib/pacman/sync/* 
 `  
 `  
 sudo pacman -Syy  
