@@ -61,6 +61,14 @@ Flags:
 Use "repoctl [command] --help" for more information about a command.
 ```
 
+#### remove db's and redownload them:
+`
+sudo rm -r /var/lib/pacman/*
+`
+`
+sudo pacman -Syy
+` 
+
 #### edit /etc/pacman.conf:
 
 ```
