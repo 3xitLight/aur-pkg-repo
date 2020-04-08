@@ -17,11 +17,11 @@ vdhcoapp
 
 #### manage with repoctl:
 
-'''
+```
 repoctl new config <[path/to/aur-pkg-repo]>/aur-pkg-repo.db.tar.xz && repoctl update
-'''
+```
 
-'''
+```
 Repoctl helps manage local Pacman repositories, and acts in particular as
 a supplement to the repo-add and repo-remove tools that come with Pacman.
 
@@ -59,19 +59,19 @@ Flags:
   -q, --quiet               show minimal amount of information
 
 Use "repoctl [command] --help" for more information about a command.
-'''
+```
 
 #### edit /etc/pacman.conf:
 
-'''
+```
 [aur-pkg-repo]
 SigLevel = Optional TrustAll 
 Include = /etc/pacman.d/aur-pkg-repo
-'''
+```
 
 #### create /etc/pacman.d/aur-pkg-repo
 
-'''
+```
 Server = https://github.com/3xitLight/aur-pkg-repo/releases/download/aur-pkg-repo/
 Server = http://0.0.0.0:8080
-'''
+```
