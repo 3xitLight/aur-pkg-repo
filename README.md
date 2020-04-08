@@ -1,7 +1,7 @@
 ### Custom Repository including prebuilt aur packages
 
 #### packages:
-'''
+```
 abrus-gtk-theme-git
 chromium-widevine
 geany-themes-git
@@ -13,13 +13,13 @@ repoctl
 repose-git
 tilix-themes-git
 vdhcoapp
-'''
+```
 
 #### manage with repoctl:
 
-```
+`
 repoctl new config <[path/to/aur-pkg-repo]>/aur-pkg-repo.db.tar.xz && repoctl update
-```
+`
 
 ```
 Repoctl helps manage local Pacman repositories, and acts in particular as
