@@ -1,0 +1,30 @@
+# Maintainer: 3XITLiGHT <3xitlight@gmail.com>
+
+_gitname=3xitlight-fonts
+_autor=3xitlight
+pkgname=3xitlight-fonts
+pkgver=r2.29cdb0e
+pkgrel=1
+pkgdesc="3xitlight's fav fonts."
+arch=('any')
+url="https://github.com/${_autor}/${_gitname}"
+license=('unknown')
+options=('!strip')
+provides=("3xitlight-fonts")
+conflicts=("3xitlight-fonts")
+source=("git+${url}.git")
+sha256sums=('SKIP')
+
+pkgver() {
+    cd "${_gitname}"
+    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+	install -d ${pkgdir}/usr/share/fonts
+    cp -rf ${_gitname}/proggy ${pkgdir}/usr/share/fonts/
+    cp -rf ${_gitname}/terminess ${pkgdir}/usr/share/fonts/
+    cp -rf ${_gitname}/ttf-zekton-rg ${pkgdir}/usr/share/fonts/
+    find ${pkgdir}/usr -type f -exec chmod 644 {} \;
+    find ${pkgdir}/usr -type d -exec chmod 755 {} \;
+}
