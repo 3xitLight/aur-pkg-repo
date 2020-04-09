@@ -1,0 +1,20 @@
+# pack-refs with: peeled fully-peeled sorted 
+a4dfc1562b718662aec351dc9b59b52756ddfb15 refs/heads/amazon_hd
+8fcbb18d38610978920543878d4d76dc35fcb996 refs/heads/amazon_visual
+159652495f5db785ea8b7ce53f7a49ee57f4e428 refs/heads/master
+f4e356b5a85282fb3aa013c48e877b724057fdf1 refs/heads/mpris
+044a136b7798b09b507600975409edd506837183 refs/heads/new_p
+45062c6cdb6cedadf1b58d31ff1d3a9b45b328ff refs/heads/non-hd
+36fbb1e1220ad199ffcb5ec53dcfcd6cce2f8362 refs/pull/16/head
+890cfcc60708739a9165b5f4e4ed2edb45e7c427 refs/pull/17/head
+8a61d797cb864d1ce6943598bab9d65226afd379 refs/pull/40/head
+267208a0ecadd492546a1ada49bd69408d40b289 refs/pull/41/head
+b24d9d305b0655bd0156ac8865d91d1b37f3acf9 refs/pull/5/head
+ffa6bbffe5f45930822d1f34148b6763235bdf6a refs/pull/50/head
+a2004df13673f6fb19313a00bb1f279284bd40fc refs/pull/55/head
+7e9a483c3e376058b7a55012e0de6536dfaa8288 refs/pull/55/merge
+b03995db76064f2f643afba2427156f4a8f63875 refs/pull/63/head
+2a32738004689630447e4925c011560bd749ef70 refs/pull/64/head
+78f2b2d8b6a97958c23a92cb4298bb8a7277f4a0 refs/pull/8/head
+a1815bde8593142d656aa871dabe48d8707d532f refs/pull/9/head
+0b49bfcb777e23df1a9b673542bd557693c9a678 refs/tags/0.1

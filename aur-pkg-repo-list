@@ -1,0 +1,2 @@
+Server = https://github.com/3xitLight/aur-pkg-repo/releases/download/aur-pkg-repo/
+Server = http://0.0.0.0:8080
