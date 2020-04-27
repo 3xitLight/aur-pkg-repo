@@ -27,12 +27,12 @@ depends+=(lsof bind-tools htop openbsd-netcat tcpdump whois nmap
 # Filesystems
 depends+=(exfat-utils dosfstools f2fs-tools)
 		
-source=('vconsole.conf'
-		'bashrc'
-		'ssh_config'
-		'sshd_config'
-		'pacman.conf'
-        '3xitlight-base.install')
+source=('files/vconsole.conf'
+		'files/bashrc'
+		'files/ssh_config'
+		'files/sshd_config'
+		'files/pacman.conf'
+        'files/3xitlight-base.install')
 md5sums=('6e31e0adf2359bc7b9e28b72d66c8712
 		2577c58bd8a4648471d9a0b9afc0ca05
 		5945f09eb2a72a06a8e94a9d78f41fb4
