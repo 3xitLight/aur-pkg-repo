@@ -8,8 +8,18 @@ url="https://github.com/3xitLight/aur-pkg-repo/tree/master/pkgbuilds/3xitlight/3
 license=('MIT')
 groups=(3xitlight)
 rootdir=$PWD
-source=('3xitlight-desktop.install')
-# md5sums=('2577c58bd8a4648471d9a0b9afc0ca05')
+source=('3xitlight-desktop.install'
+'files/bashrc'
+'files/etc/lightdm/lightdm.conf'
+'files/etc/lightdm/lightdm.conf'
+'files/etc/lightdm/lightdm-gtk-greeter.conf'
+'files/Qtwebflix/providers.conf')
+ md5sums=('2577c58bd8a4648471d9a0b9afc0ca05'
+'2577c58bd8a4648471d9a0b9afc0ca05'
+'4fd8a0e5b70bf46f8280e3ed3c38ebfc'
+'17491106185a34987900b653753666d8'
+'17491106185a34987900b653753666d8'
+'886279a5cc960ce5125fbc88535127e9')
 
 package_3xitlight-desktop() {
 #	install=3xitlight-desktop.install
