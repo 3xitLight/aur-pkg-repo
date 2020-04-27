@@ -1,7 +1,9 @@
 #!/bin/bash
 
 echo "Updating repo database"
-repoctl reset
+repoctl update
+repoctl list 
+sleep 2
 
 # checking if I have the latest files from github
 #echo "Checking for newer files online first"
