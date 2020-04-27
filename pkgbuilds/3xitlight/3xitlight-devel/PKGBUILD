@@ -16,7 +16,4 @@ package_3xitlight-desktop() {
 
 	depends+=(devtools)
 
-
-install -Dm 0644 files/bashrc "$pkgdir/home/{$USER}.bashrc"
-
 }

@@ -76,6 +76,4 @@ package_3xitlight-desktop() {
 	depends+=(3xitlight-icons 3xitlight-fonts abrus-gtk-theme-git chromium-widevine geany-themes-git pamac-classic protonvpn-cli-ng qtwebflix-git
 	tilix-themes-git vdhcoapp)
 
-install -Dm 0644 files/bashrc "$pkgdir/home/{$USER}.bashrc"
-
 }

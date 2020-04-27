@@ -8,7 +8,9 @@ cp -r files/usr/share/backgrounds/3xitlight /usr/share/backgrounds/
 cp -r files/Qtwebflix /home/xnn/.config/
 chmod -R 644 /etc/lightdm/
 chown -R root:root /etc/lightdm/
-}
+cp -r files/bashrc /home/${USER}/.bashrc
+chmod 644 /home/${USER}/.bashrc
+chown ${USER} /home/${USER}/.bashrc
 
 post_install() {
     systemctl enable --now lightdm
