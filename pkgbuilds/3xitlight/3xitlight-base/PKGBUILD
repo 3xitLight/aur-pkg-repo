@@ -1,0 +1,49 @@
+# Maintainer: 3XITLIGHT <3xitLight@protonmail.com>
+pkgname=3XITLIGHT-base
+pkgver=1.0
+pkgrel=1
+pkgdesc="Base system configuration for 3XITLIGHT systems"
+arch=('any')
+url="https://github.com/3xitLight/aur-pkg-repo/pkgbuilds/3xitlight/3xitlight-base"
+license=('MIT')
+install=3xitlight-base.install
+groups=(3xitlight)
+
+# core
+depends=(bash bzip2 coreutils file filesystem findutils gawk gcc-libs gettext glibc grep gzip iproute2 iputils licenses pacman 
+		pciutils procps-ng psmisc sed shadow systemd systemd-sysvcompat tar util-linux xz linux linux-headers dkms)
+
+# base-devel
+depends=(autoconf automake binutils bison fakeroot file findutils flex gawk gcc gzip libtool m4
+		make pacman patch pkgconf sudo texinfo which lvm2 nano pacman-contrib intel-ucode)
+		
+# Extra general packages
+depends+=(unzip zip dialog pacman-contrib keybase efibootmgr efitools pv nftables openssh)
+
+# Network tools
+depends+=(lsof bind-tools htop openbsd-netcat tcpdump whois nmap 
+		iftop)
+
+# Filesystems
+depends+=(exfat-utils dosfstools f2fs-tools)
+		
+source=('vconsole.conf'
+		'bashrc'
+		'ssh_config'
+		'sshd_config'
+		'pacman.conf'
+        '3xitlight-base.install')
+md5sums=('6e31e0adf2359bc7b9e28b72d66c8712
+		2577c58bd8a4648471d9a0b9afc0ca05
+		5945f09eb2a72a06a8e94a9d78f41fb4
+		b27458e7d513d102628941a629bf3e3b
+		a044cb681681af2663c912b69d0f5897')
+
+package() {
+#	install -Dm 0644 bashrc "$pkgdir/home/{$USER}.bashrc"
+	install -Dm 0644 files/ssh_config "$pkgdir/etc/ssh/ssh_config'"
+	install -Dm 0644 files/sshd_config "$pkgdir/etc/ssh/sshd_config'"
+	install -Dm 0644 files/bashrc "$pkgdir/etc/bash.bashrc"
+    install -Dm 0644 files/vconsole.conf "$pkgdir/etc/vconsole.conf"
+    install -Dm 0644 files/pacman.conf "$pkgdir/etc/pacman.conf"
+}

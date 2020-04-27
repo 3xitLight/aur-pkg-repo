@@ -1,0 +1,71 @@
+# Maintainer: 3XITLIGHT <3xitLight@protonmail.com>
+pkgname=3XITLIGHT-desktop
+pkgver=1.0
+pkgrel=1
+pkgdesc="Base system configuration for 3XITLIGHT systems"
+arch=('any')
+url="https://github.com/3xitLight/aur-pkg-repo/pkgbuilds/3xitlight/3xitlight-desktop"
+license=('MIT')
+groups=(3xitlight)
+rootdir=$PWD
+source=('3xitlight-desktop.install')
+# md5sums=('2577c58bd8a4648471d9a0b9afc0ca05')
+
+package_3xitlight-desktop() {
+#	install=3xitlight-desktop.install
+	depends=(3xitlight-base)
+
+# Drivers and utilities
+	depends+=(nvidia-dkms nnvidia-utils nvidia-settings xf86-input-libinput xf86-video-intel xf86-video-vesa)
+
+    # Xorg packages and utilities
+	depends+=(xorg-xsetroot xorg-xkill xorg-xbacklight xorg-bdftopcf xorg-iceauth
+        xorg-luit xorg-mkfontdir xorg-mkfontscale xorg-sessreg xorg-setxkbmap
+        xorg-smproxy xorg-x11perf xorg-xauth xorg-xbacklight xorg-xcmsdb
+        xorg-xcursorgen xorg-xdriinfo xorg-xev xorg-xgamma xorg-xhost
+        xorg-xinput xorg-xkbcomp xorg-xkbevd xorg-xkbutils xorg-xkill xorg-xlsatoms
+        xorg-xlsclients xorg-xmodmap xorg-xpr xorg-xprop xorg-xrandr xorg-xrdb
+        xorg-xrefresh xorg-xset xorg-xsetroot xorg-xvinfo xorg-xwd xorg-xwininfo
+        xorg-xwud)
+
+# MATE 
+	depends+=(caja marco mate-backgrounds mate-control-center mate-desktop mate-icon-theme mate-menus mate-notification-daemon	mate-panel 
+		mate-polkit mate-session-manager mate-settings-daemon mate-themes mate-user-guide)
+
+# MATE-EXTRA
+	depends+=(atril caja-image-converter caja-open-terminal caja-sendto caja-share caja-wallpaper
+		caja-xattr-tags engrampa eom mate-applets mate-calc mate-icon-theme-faenza mate-media
+		mate-netbook mate-power-manager mate-screensaver mate-sensors-applet mate-system-monitor 
+		mate-terminal mate-user-share mate-utils mozo pluma)
+
+# Login manager
+	depends+=(lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings)
+
+# Networking
+	depends+=(networkmanager network-manager-applet networkmanager-openvpn mobile-broadband-provider-info
+		nm-connection-editor openvpn wpa_supplicant)
+		
+# Internet Applications
+	depends+=(firefox-developer-edition chromium transmission-gtk firejail)
+
+# Utility
+	depends+=(geany geany-plugins git arandr android-tools gimp gnome-disk-utility gnome-logs gnome-nettool gparted gpg-crypter 
+		grub-customizer logwatch rsync usb_modeswitch apparmor firejail fakechroot)
+
+# SEC Applications
+	depends+=(ettercap-gtk wireshark-qt traceroute libnetfilter_acct libnetfilter_cthelper libnetfilter_cttimeout libnetfilter_log
+		libnetfilter_queue)
+
+# Python
+	depends+=(python python-pip python-setuptools)
+
+# MEDIA
+	depends+=(vlc phonon-qt5-vlc smplayer smplayer-themes smplayer-skins pulseaudio pulseaudio-alsa pavucontrol pulseaudio-equalizer-ladspa)
+
+# CUSTOM REPO
+	depends+=(3xitlight-icons 3xitlight-fonts abrus-gtk-theme-git chromium-widevine geany-themes-git pamac-classic protonvpn-cli-ng qtwebflix-git
+	tilix-themes-git vdhcoapp
+
+install -Dm 0644 files/bashrc "$pkgdir/home/{$USER}.bashrc"
+
+}

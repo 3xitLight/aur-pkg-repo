@@ -1,0 +1,18 @@
+post_install() {
+    post_upgrade
+}
+
+post_upgrade() {
+cp -f files/etc/lightdm/* /etc/lightdm/
+cp -r files/usr/share/backgrounds/3xitlight /usr/share/backgrounds/
+cp -r files/Qtwebflix /home/xnn/.config/
+chmod -R 644 /etc/lightdm/
+chown -R root:root /etc/lightdm/
+}
+
+post_install() {
+    systemctl enable --now lightdm
+    systemctl enable --now ufw
+    systemctl enable --now apparmor
+    systemctl disable --now avahi-daemon
+}
