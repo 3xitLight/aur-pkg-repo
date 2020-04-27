@@ -1,13 +1,30 @@
 # Maintainer: 3XITLIGHT <3xitLight@protonmail.com>
-pkgname=3XITLIGHT-base
+pkgname=3xitlight-base
 pkgver=1.0
 pkgrel=1
 pkgdesc="Base system configuration for 3XITLIGHT systems"
 arch=('any')
 url="https://github.com/3xitLight/aur-pkg-repo/tree/master/pkgbuilds/3xitlight/3xitlight-base"
 license=('MIT')
-install=3xitlight-base.install
 groups=(3xitlight)
+_rootdir=$PWD
+source=(
+	'bashrc'
+	'pacman.conf' 
+	'ssh_config'
+	'sshd_config'
+	'vconsole.conf'
+	'3xitlight-base.install')
+
+sha256sums=(
+	'1f77cf14254862ff16e1ea1f6ae500448d198b255c7f97a02581fc882aca0795'
+	'88450b84d5c07c282e751e174b73faac63e5d75ef9bac8e0bc7c858eb5d7544d'
+	'344ccf0afec0418735fdd50f2b42dc00d986cb6c2dc21294764db3ab5fd8700b'
+	'39dd495c6f3c164d60e2234d4b5d61f6808bb2f84fb7aca6775cfd82e6d34b25'
+	'cc2b6caacc003087167ca23fefe1a4e3e1386e4bd5dfe4a36c60245f951eb771'
+	'2dd1a3f6bcfd177baedd4f932ef6042c92471bb18217daa028553b02eca88b82')
+
+install=3xitlight-base.install
 
 # core
 depends=(bash bzip2 coreutils file filesystem findutils gawk gcc-libs gettext glibc grep gzip iproute2 iputils licenses pacman 
@@ -21,29 +38,16 @@ depends=(autoconf automake binutils bison fakeroot file findutils flex gawk gcc 
 depends+=(unzip zip dialog pacman-contrib keybase efibootmgr efitools pv nftables openssh)
 
 # Network tools
-depends+=(lsof bind-tools htop openbsd-netcat tcpdump whois nmap 
-		iftop)
+depends+=(lsof bind-tools htop)
 
 # Filesystems
 depends+=(exfat-utils dosfstools f2fs-tools)
 		
-source=('files/vconsole.conf'
-		'files/bashrc'
-		'files/ssh_config'
-		'files/sshd_config'
-		'files/pacman.conf'
-        'files/3xitlight-base.install')
-md5sums=('6e31e0adf2359bc7b9e28b72d66c8712
-		2577c58bd8a4648471d9a0b9afc0ca05
-		5945f09eb2a72a06a8e94a9d78f41fb4
-		b27458e7d513d102628941a629bf3e3b
-		a044cb681681af2663c912b69d0f5897')
-
 package() {
 #	install -Dm 0644 bashrc "$pkgdir/home/{$USER}.bashrc"
-	install -Dm 0644 files/ssh_config "$pkgdir/etc/ssh/ssh_config'"
-	install -Dm 0644 files/sshd_config "$pkgdir/etc/ssh/sshd_config'"
-	install -Dm 0644 files/bashrc "$pkgdir/etc/bash.bashrc"
-    install -Dm 0644 files/vconsole.conf "$pkgdir/etc/vconsole.conf"
-    install -Dm 0644 files/pacman.conf "$pkgdir/etc/pacman.conf"
+	install -Dm 0644 ssh_config "$pkgdir/etc/ssh/ssh_config'"
+	install -Dm 0644 sshd_config "$pkgdir/etc/ssh/sshd_config'"
+	install -Dm 0644 bashrc "$pkgdir/etc/bash.bashrc"
+    install -Dm 0644 vconsole.conf "$pkgdir/etc/vconsole.conf"
+    install -Dm 0644 pacman.conf "$pkgdir/etc/pacman.conf"
 }

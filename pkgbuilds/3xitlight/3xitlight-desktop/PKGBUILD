@@ -1,5 +1,5 @@
 # Maintainer: 3XITLIGHT <3xitLight@protonmail.com>
-pkgname=3XITLIGHT-desktop
+pkgname=3xitlight-desktop
 pkgver=1.0
 pkgrel=1
 pkgdesc="Base system configuration for 3XITLIGHT systems"
@@ -8,72 +8,78 @@ url="https://github.com/3xitLight/aur-pkg-repo/tree/master/pkgbuilds/3xitlight/3
 license=('MIT')
 groups=(3xitlight)
 rootdir=$PWD
-source=('3xitlight-desktop.install'
-'files/bashrc'
-'files/etc/lightdm/lightdm.conf'
-'files/etc/lightdm/lightdm.conf'
-'files/etc/lightdm/lightdm-gtk-greeter.conf'
-'files/Qtwebflix/providers.conf')
- md5sums=('2577c58bd8a4648471d9a0b9afc0ca05'
-'2577c58bd8a4648471d9a0b9afc0ca05'
-'4fd8a0e5b70bf46f8280e3ed3c38ebfc'
-'17491106185a34987900b653753666d8'
-'17491106185a34987900b653753666d8'
-'886279a5cc960ce5125fbc88535127e9')
+
+source=(
+	'3xitlight-desktop.install'
+	'bashrc'
+	'lightdm.conf'
+	'lightdm-gtk-greeter.conf'
+	'users.conf')
+	
+sha256sums=(
+	'50cd518e5ef7c93ee55e60ca5104fbacca86fd7a73cd89aabe113963f473041d'  # 3xitlight-desktop.install #
+	'22f883871f0f150eed65c4817d7b64dfad2f4c0bd3659cac2328be8799d1dccf'  # bashrc                    #
+	'7100cf400c22c00880de04f0d5c818844a5f7afb7835d777452ca4a756797935'  # lightdm.conf              #
+	'b8bc2a111852ccce5489cf013f941991e553601df8b2db30223e55313394ab88'  # lightdm-gtk-greeter.conf  #
+	'7191418d6bab271ffef66f2a221cf3d1f4dce4ea95b53d8e161116a73fbc29cb') # users.conf                #
+
+
 
 package_3xitlight-desktop() {
-#	install=3xitlight-desktop.install
-	depends=(3xitlight-base)
-
-# Drivers and utilities
-	depends+=(nvidia-dkms nnvidia-utils nvidia-settings xf86-input-libinput xf86-video-intel xf86-video-vesa)
+		install=3xitlight-desktop.install
+	
+		# Drivers and utilities
+		depends+=(nvidia-dkms nnvidia-utils nvidia-settings xf86-input-libinput xf86-video-intel xf86-video-vesa)
 
     # Xorg packages and utilities
-	depends+=(xorg-xsetroot xorg-xkill xorg-xbacklight xorg-bdftopcf xorg-iceauth
-        xorg-luit xorg-mkfontdir xorg-mkfontscale xorg-sessreg xorg-setxkbmap
-        xorg-smproxy xorg-x11perf xorg-xauth xorg-xbacklight xorg-xcmsdb
-        xorg-xcursorgen xorg-xdriinfo xorg-xev xorg-xgamma xorg-xhost
-        xorg-xinput xorg-xkbcomp xorg-xkbevd xorg-xkbutils xorg-xkill xorg-xlsatoms
-        xorg-xlsclients xorg-xmodmap xorg-xpr xorg-xprop xorg-xrandr xorg-xrdb
-        xorg-xrefresh xorg-xset xorg-xsetroot xorg-xvinfo xorg-xwd xorg-xwininfo
-        xorg-xwud)
+		depends+=(xorg-xsetroot xorg-xkill xorg-xbacklight xorg-bdftopcf xorg-iceauth
+			xorg-luit xorg-mkfontdir xorg-mkfontscale xorg-sessreg xorg-setxkbmap
+			xorg-smproxy xorg-x11perf xorg-xauth xorg-xbacklight xorg-xcmsdb
+			xorg-xcursorgen xorg-xdriinfo xorg-xev xorg-xgamma xorg-xhost
+			xorg-xinput xorg-xkbcomp xorg-xkbevd xorg-xkbutils xorg-xkill xorg-xlsatoms
+			xorg-xlsclients xorg-xmodmap xorg-xpr xorg-xprop xorg-xrandr xorg-xrdb
+			xorg-xrefresh xorg-xset xorg-xsetroot xorg-xvinfo xorg-xwd xorg-xwininfo
+			xorg-xwud)
 
-# MATE 
-	depends+=(caja marco mate-backgrounds mate-control-center mate-desktop mate-icon-theme mate-menus mate-notification-daemon	mate-panel 
-		mate-polkit mate-session-manager mate-settings-daemon mate-themes mate-user-guide)
+		# MATE 
+		depends+=(caja marco mate-backgrounds mate-control-center mate-desktop mate-icon-theme mate-menus mate-notification-daemon	mate-panel 
+			mate-polkit mate-session-manager mate-settings-daemon mate-themes mate-user-guide)
 
-# MATE-EXTRA
-	depends+=(atril caja-image-converter caja-open-terminal caja-sendto caja-share caja-wallpaper
-		caja-xattr-tags engrampa eom mate-applets mate-calc mate-icon-theme-faenza mate-media
-		mate-netbook mate-power-manager mate-screensaver mate-sensors-applet mate-system-monitor 
-		mate-terminal mate-user-share mate-utils mozo pluma)
+		# MATE-EXTRA
+		depends+=(atril caja-image-converter caja-open-terminal caja-sendto caja-share caja-wallpaper
+			caja-xattr-tags engrampa eom mate-applets mate-calc mate-icon-theme-faenza mate-media
+			mate-netbook mate-power-manager mate-screensaver mate-sensors-applet mate-system-monitor 
+			mate-terminal mate-user-share mate-utils mozo pluma)
 
-# Login manager
-	depends+=(lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings)
+		# Login manager
+		depends+=(lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings)
 
-# Networking
-	depends+=(networkmanager network-manager-applet networkmanager-openvpn mobile-broadband-provider-info
-		nm-connection-editor openvpn wpa_supplicant)
+		# Networking
+		depends+=(networkmanager network-manager-applet networkmanager-openvpn mobile-broadband-provider-info
+			nm-connection-editor openvpn wpa_supplicant nmap openbsd-netcat tcpdump whois iftop)
 		
-# Internet Applications
-	depends+=(firefox-developer-edition chromium transmission-gtk firejail)
+		# Internet Applications
+		depends+=(firefox-developer-edition chromium transmission-gtk firejail)
 
-# Utility
-	depends+=(geany geany-plugins git arandr android-tools gimp gnome-disk-utility gnome-logs gnome-nettool gparted gpg-crypter 
-		grub-customizer logwatch rsync usb_modeswitch apparmor firejail fakechroot)
+		# Utility
+		depends+=(geany geany-plugins git arandr android-tools gimp gnome-disk-utility gnome-logs gnome-nettool gparted gpg-crypter 
+			grub-customizer logwatch rsync usb_modeswitch apparmor firejail fakechroot)
 
-# SEC Applications
-	depends+=(ettercap-gtk wireshark-qt traceroute libnetfilter_acct libnetfilter_cthelper libnetfilter_cttimeout libnetfilter_log
-		libnetfilter_queue)
+		# SEC Applications
+		depends+=(ettercap-gtk wireshark-qt traceroute libnetfilter_acct libnetfilter_cthelper libnetfilter_cttimeout libnetfilter_log
+			libnetfilter_queue)
 
-# Python
-	depends+=(python python-pip python-setuptools)
+		# Python
+		depends+=(python python-pip python-setuptools)
 
-# MEDIA
-	depends+=(vlc phonon-qt5-vlc smplayer smplayer-themes smplayer-skins pulseaudio pulseaudio-alsa pavucontrol pulseaudio-equalizer-ladspa)
+		# MEDIA
+		depends+=(vlc phonon-qt5-vlc smplayer smplayer-themes smplayer-skins pulseaudio pulseaudio-alsa pavucontrol pulseaudio-equalizer-ladspa)
 
-# CUSTOM REPO
-	depends+=(3xitlight-icons 3xitlight-fonts abrus-gtk-theme-git chromium-widevine geany-themes-git pamac-classic protonvpn-cli-ng qtwebflix-git
-	tilix-themes-git vdhcoapp)
-
+		# CUSTOM REPO
+		depends+=(3xitlight-icons 3xitlight-fonts abrus-gtk-theme-git chromium-widevine geany-themes-git pamac-classic protonvpn-cli-ng qtwebflix-git
+			tilix-themes-git vdhcoapp)
+	
+	
+		cp -a "$rootdir/files"* "$pkgdir"
+		install -Dm 0644 bashrc "$pkgdir/home/${USER}/.bashrc"
 }
