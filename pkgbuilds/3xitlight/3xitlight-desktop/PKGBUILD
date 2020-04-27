@@ -7,79 +7,99 @@ arch=('any')
 url="https://github.com/3xitLight/aur-pkg-repo/tree/master/pkgbuilds/3xitlight/3xitlight-desktop"
 license=('MIT')
 groups=(3xitlight)
-rootdir=$PWD
+_rootdir=$PWD
+install=3xitlight-desktop.install
 
-source=(
-	'3xitlight-desktop.install'
-	'bashrc'
-	'lightdm.conf'
-	'lightdm-gtk-greeter.conf'
-	'users.conf')
+#source=(
+#	'bashrc'
+#	'pacman.conf' 
+#	'ssh_config'
+#	'sshd_config'
+#	'vconsole.conf'
+#	'3xitlight-base.install'
+#	'3xitlight-desktop.install'
+#	'lightdm.conf'
+#	'lightdm-gtk-greeter.conf'
+#	'users.conf')
 	
-sha256sums=(
-	'50cd518e5ef7c93ee55e60ca5104fbacca86fd7a73cd89aabe113963f473041d'  # 3xitlight-desktop.install #
-	'22f883871f0f150eed65c4817d7b64dfad2f4c0bd3659cac2328be8799d1dccf'  # bashrc                    #
-	'7100cf400c22c00880de04f0d5c818844a5f7afb7835d777452ca4a756797935'  # lightdm.conf              #
-	'b8bc2a111852ccce5489cf013f941991e553601df8b2db30223e55313394ab88'  # lightdm-gtk-greeter.conf  #
-	'7191418d6bab271ffef66f2a221cf3d1f4dce4ea95b53d8e161116a73fbc29cb') # users.conf                #
+#sha256sums=(
+#	'1f77cf14254862ff16e1ea1f6ae500448d198b255c7f97a02581fc882aca0795'
+#	'88450b84d5c07c282e751e174b73faac63e5d75ef9bac8e0bc7c858eb5d7544d'
+#	'344ccf0afec0418735fdd50f2b42dc00d986cb6c2dc21294764db3ab5fd8700b'
+#	'39dd495c6f3c164d60e2234d4b5d61f6808bb2f84fb7aca6775cfd82e6d34b25'
+#	'cc2b6caacc003087167ca23fefe1a4e3e1386e4bd5dfe4a36c60245f951eb771'
+#	'2dd1a3f6bcfd177baedd4f932ef6042c92471bb18217daa028553b02eca88b82'
+#	'd14c5d935739fbfcbfb7e6a0de7e2e4afe607ba239e54e05e66609effe4dc2ca'  # 3xitlight-desktop.install #
+#	'7100cf400c22c00880de04f0d5c818844a5f7afb7835d777452ca4a756797935'  # lightdm.conf              #
+#	'b8bc2a111852ccce5489cf013f941991e553601df8b2db30223e55313394ab88'  # lightdm-gtk-greeter.conf  #
+#	'7191418d6bab271ffef66f2a221cf3d1f4dce4ea95b53d8e161116a73fbc29cb')	# users.conf                #
 
+# core
+depends=(bash bzip2 coreutils file filesystem findutils gawk gcc-libs gettext glibc grep gzip iproute2 iputils licenses pacman 
+		pciutils procps-ng psmisc sed shadow systemd systemd-sysvcompat tar util-linux xz linux linux-headers dkms)
 
-
-package_3xitlight-desktop() {
-		install=3xitlight-desktop.install
-	
-		# Drivers and utilities
-		depends+=(nvidia-dkms nnvidia-utils nvidia-settings xf86-input-libinput xf86-video-intel xf86-video-vesa)
-
-    # Xorg packages and utilities
-		depends+=(xorg-xsetroot xorg-xkill xorg-xbacklight xorg-bdftopcf xorg-iceauth
-			xorg-luit xorg-mkfontdir xorg-mkfontscale xorg-sessreg xorg-setxkbmap
-			xorg-smproxy xorg-x11perf xorg-xauth xorg-xbacklight xorg-xcmsdb
-			xorg-xcursorgen xorg-xdriinfo xorg-xev xorg-xgamma xorg-xhost
-			xorg-xinput xorg-xkbcomp xorg-xkbevd xorg-xkbutils xorg-xkill xorg-xlsatoms
-			xorg-xlsclients xorg-xmodmap xorg-xpr xorg-xprop xorg-xrandr xorg-xrdb
-			xorg-xrefresh xorg-xset xorg-xsetroot xorg-xvinfo xorg-xwd xorg-xwininfo
-			xorg-xwud)
-
-		# MATE 
-		depends+=(caja marco mate-backgrounds mate-control-center mate-desktop mate-icon-theme mate-menus mate-notification-daemon	mate-panel 
-			mate-polkit mate-session-manager mate-settings-daemon mate-themes mate-user-guide)
-
-		# MATE-EXTRA
-		depends+=(atril caja-image-converter caja-open-terminal caja-sendto caja-share caja-wallpaper
-			caja-xattr-tags engrampa eom mate-applets mate-calc mate-icon-theme-faenza mate-media
-			mate-netbook mate-power-manager mate-screensaver mate-sensors-applet mate-system-monitor 
-			mate-terminal mate-user-share mate-utils mozo pluma)
-
-		# Login manager
-		depends+=(lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings)
-
-		# Networking
-		depends+=(networkmanager network-manager-applet networkmanager-openvpn mobile-broadband-provider-info
-			nm-connection-editor openvpn wpa_supplicant nmap openbsd-netcat tcpdump whois iftop)
+# base-devel
+depends=(autoconf automake binutils bison fakeroot file findutils flex gawk gcc gzip libtool m4
+		make pacman patch pkgconf sudo texinfo which lvm2 nano pacman-contrib intel-ucode)
 		
-		# Internet Applications
-		depends+=(firefox-developer-edition chromium transmission-gtk firejail)
+# Extra general packages
+depends+=(unzip zip dialog pacman-contrib keybase efibootmgr efitools pv nftables openssh)
 
-		# Utility
-		depends+=(geany geany-plugins git arandr android-tools gimp gnome-disk-utility gnome-logs gnome-nettool gparted gpg-crypter 
-			grub-customizer logwatch rsync usb_modeswitch apparmor firejail fakechroot)
+# Network tools
+depends+=(lsof bind-tools htop)
 
-		# SEC Applications
-		depends+=(ettercap-gtk wireshark-qt traceroute libnetfilter_acct libnetfilter_cthelper libnetfilter_cttimeout libnetfilter_log
-			libnetfilter_queue)
+# Filesystems
+depends+=(exfat-utils dosfstools f2fs-tools)
 
-		# Python
-		depends+=(python python-pip python-setuptools)
+# Drivers and utilities
+depends+=(nvidia-dkms nvidia-utils nvidia-settings xf86-input-libinput xf86-video-intel xf86-video-vesa)
 
-		# MEDIA
-		depends+=(vlc phonon-qt5-vlc smplayer smplayer-themes smplayer-skins pulseaudio pulseaudio-alsa pavucontrol pulseaudio-equalizer-ladspa)
+# MATE 
+depends+=(caja marco mate-backgrounds mate-control-center mate-desktop mate-icon-theme mate-menus mate-notification-daemon	mate-panel 
+	mate-polkit mate-session-manager mate-settings-daemon mate-themes mate-user-guide)
 
-		# CUSTOM REPO
-		depends+=(3xitlight-icons 3xitlight-fonts abrus-gtk-theme-git chromium-widevine geany-themes-git pamac-classic protonvpn-cli-ng qtwebflix-git
-			tilix-themes-git vdhcoapp)
+# MATE-EXTRA
+depends+=(atril caja-image-converter caja-open-terminal caja-sendto caja-share caja-wallpaper
+	caja-xattr-tags engrampa eom mate-applets mate-calc mate-icon-theme-faenza mate-media
+	mate-netbook mate-power-manager mate-screensaver mate-sensors-applet mate-system-monitor 
+	mate-terminal mate-user-share mate-utils mozo pluma)
+
+# Login manager
+depends+=(lightdm lightdm-gtk-greeter lightdm-gtk-greeter-settings)
+
+# Networking
+depends+=(networkmanager network-manager-applet networkmanager-openvpn mobile-broadband-provider-info
+	nm-connection-editor openvpn wpa_supplicant nmap openbsd-netcat tcpdump whois iftop)
+
+# Internet Applications
+depends+=(firefox-developer-edition chromium transmission-gtk firejail)
+
+# Utility
+depends+=(tilix geany geany-plugins git arandr android-tools gimp gparted gpg-crypter 
+	grub-customizer logwatch rsync usb_modeswitch apparmor firejail fakechroot)
+
+# SEC Applications
+depends+=(ettercap-gtk wireshark-qt traceroute libnetfilter_acct libnetfilter_cthelper libnetfilter_cttimeout libnetfilter_log
+	libnetfilter_queue)
+
+# SYSTEM
+depends+=(gnome-disk-utility gnome-logs gnome-nettool logwatch python python-pip python-setuptools)
+
+# MEDIA
+depends+=(vlc phonon-qt5-vlc smplayer smplayer-themes smplayer-skins pulseaudio pulseaudio-alsa pavucontrol pulseaudio-equalizer-ladspa)
+
+# CUSTOM REPO
+depends+=(3xitlight-icons 3xitlight-fonts abrus-gtk-theme-git chromium-widevine geany-themes-git pamac-classic protonvpn-cli-ng qtwebflix-git
+	tilix-themes-git vdhcoapp)
 	
 	
-		cp -a "$rootdir/files"* "$pkgdir"
-		install -Dm 0644 bashrc "$pkgdir/home/${USER}/.bashrc"
+package_3xitlight-desktop() {	
+	
+	mkdir -p "$pkgdir"/usr/share/3xitlight/
+	cp -r "$_rootdir"/files/* "$pkgdir"/usr/share/3xitlight/
+		
+#	install -Dm0644 bashrc "$pkgdir"/home/${USER}/.bashrc
+#	install -Dm0644 lightdm.conf "$pkgdir"/etc/lightdm/lightdm.conf 
+#	install -Dm0644 lightdm-gtk-greeter.conf "$pkgdir"/etc//lightdm/lightdm-gtk-greeter.conf
+#	install -Dm0644 users.conf "$pkgdir"/etc/lightdm/users.conf 
 }
