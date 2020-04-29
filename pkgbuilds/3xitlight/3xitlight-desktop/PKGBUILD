@@ -36,7 +36,7 @@ sha256sums=(
 		'344ccf0afec0418735fdd50f2b42dc00d986cb6c2dc21294764db3ab5fd8700b' # ssh_config
 		'39dd495c6f3c164d60e2234d4b5d61f6808bb2f84fb7aca6775cfd82e6d34b25' # sshd_config
 		'9db7f67e68218e51ee549cba0949aae86b6c14a48ac40b851cf76aba951f70a7' # sudoers.d-wheel
-		'7191418d6bab271ffef66f2a221cf3d1f4dce4ea95b53d8e161116a73fbc29cb' # users.conf
+		'7191418d6bab271ffef66f2a221cf3d1f4dce4ea95b53d8e161116a73fbc29cb') # users.conf
 		
 depends=(
 ###############################
