@@ -8,36 +8,43 @@ arch=('any')
 url="https://raw.githubusercontent.com/3xitLight/aur-pkg-repo/master/pkgbuilds/3xitlight/3xitlight-desktop/"
 # url="https://github.com/3xitLight/aur-pkg-repo/blob/master/pkgbuilds/3xitlight/3xitlight-desktop/3xitlight-desktop.install"
 license=('MIT')
+
 groups=(3xitlight)
 _rootdir=$PWD
-install=3xitlight-desktop.install
-source=('3xitlight-desktop.install'
-		'3xitlight.tar.gz'
+# install=3xitlight-desktop.install
+source=('3xitlight.tar.gz'
 		'bashrc'
 		'lightdm.conf'
 		'lightdm-gtk-greeter.conf'
 		'org.mate.interface.gschema.xml'
-		'pacman.conf'
 		'providers.conf'
 		'ssh_config'
 		'sshd_config'
 		'sudoers.d-wheel'
-		'users.conf')
+		'users.conf'
+		'ufw.sh'
+		'etc_default_ufw'
+		'config.sh'
+		'user_config.sh')			
 										
 sha256sums=(
-		'0a1bd2864649e673bf9e2dc4acf9c667dba9ef897e1c7b699baf9d89efc5a784' # 3xitlight-desktop.install
-		'b2f640f327d72b0f9d63548be32fb3427e2bf331aac8c4e6c4d3e4c43e5f2151' # 3xitlight.tar.gz
-		'4f3062dccc6836727d8bbba36b7551c0e521ea14af6cc2bd4308097f113d8c96' # bashrc
-		'7100cf400c22c00880de04f0d5c818844a5f7afb7835d777452ca4a756797935' # lightdm.conf
-		'b8bc2a111852ccce5489cf013f941991e553601df8b2db30223e55313394ab88' # lightdm-gtk-greeter.conf
-		'c89015ea914e55d31b9465d6a32f7bb6acc2894ea0712fbcc6acdfbe1716633d' # org.mate.interface.gschema.xml
-		'88450b84d5c07c282e751e174b73faac63e5d75ef9bac8e0bc7c858eb5d7544d' # pacman.conf
-		'0ab41e9bc74e6dee330e1c0b9b208ad90babe01f0e124f593a7c54e3b2499471' # providers.conf
-		'344ccf0afec0418735fdd50f2b42dc00d986cb6c2dc21294764db3ab5fd8700b' # ssh_config
-		'39dd495c6f3c164d60e2234d4b5d61f6808bb2f84fb7aca6775cfd82e6d34b25' # sshd_config
-		'9db7f67e68218e51ee549cba0949aae86b6c14a48ac40b851cf76aba951f70a7' # sudoers.d-wheel
-		'7191418d6bab271ffef66f2a221cf3d1f4dce4ea95b53d8e161116a73fbc29cb') # users.conf
-		
+		'b2f640f327d72b0f9d63548be32fb3427e2bf331aac8c4e6c4d3e4c43e5f2151'    # 3xitlight.tar.gz
+		'4f3062dccc6836727d8bbba36b7551c0e521ea14af6cc2bd4308097f113d8c96'    # bashrc
+		'7100cf400c22c00880de04f0d5c818844a5f7afb7835d777452ca4a756797935'    # lightdm.conf
+		'b8bc2a111852ccce5489cf013f941991e553601df8b2db30223e55313394ab88'    # lightdm-gtk-greeter.conf
+		'c89015ea914e55d31b9465d6a32f7bb6acc2894ea0712fbcc6acdfbe1716633d'    # org.mate.interface.gschema.xml
+		'0ab41e9bc74e6dee330e1c0b9b208ad90babe01f0e124f593a7c54e3b2499471'    # providers.conf
+		'344ccf0afec0418735fdd50f2b42dc00d986cb6c2dc21294764db3ab5fd8700b'    # ssh_config
+		'39dd495c6f3c164d60e2234d4b5d61f6808bb2f84fb7aca6775cfd82e6d34b25'    # sshd_config
+		'9db7f67e68218e51ee549cba0949aae86b6c14a48ac40b851cf76aba951f70a7'    # sudoers.d-wheel
+		'7191418d6bab271ffef66f2a221cf3d1f4dce4ea95b53d8e161116a73fbc29cb'    # users.conf
+		'9faacebbdf4a62955dc4903c620c4cbe731bc3ebda6f35ddbcd1b0ef07af4be3'    # ufw.sh
+		'6ff66dea38b524748a9c981dfc108f2d43df85c9bf1e5fcc104e775fd72d6de3'    # etc_default_ufw
+		'dbc2811e5da65144f9d6986c045276d56d0b80e816f9f1d42cf3696039d199b6'    # config.sh
+		'0a2beff8c5373f63ec7abc341a34bb913e75a5721708d87316c952317fb73eee')   # user_config.sh
+
+			
+			
 depends=(
 ###############################
 #######      CUSTOM REPO	  #
@@ -381,10 +388,5 @@ package_3xitlight-desktop() {
 	# mkdir -p "$pkgdir"/usr/share/3xitlight/
 	# cp -r "$_rootdir"/files/* "$pkgdir"/usr/share/3xitlight/
 
-	install -Dm0644 bashrc "$pkgdir"/home/${USER}/.bashrc
-	install -Dm0644 lightdm.conf "$pkgdir"/etc/lightdm/lightdm.conf
-	install -Dm0644 lightdm-gtk-greeter.conf "$pkgdir"/etc//lightdm/lightdm-gtk-greeter.conf
-	install -Dm0644 users.conf "$pkgdir"/etc/lightdm/users.conf
-	install -Dm0700 sudoers.d-wheel "$pkgdir"/etc/sudoers.d/wheel
-	chmod -R 0750 "$pkgdir/etc/sudoers.d"
+	install -Dm0644 config.sh "$pkgdir"/tmp/config.sh
 }
