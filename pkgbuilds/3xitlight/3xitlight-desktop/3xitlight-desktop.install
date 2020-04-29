@@ -4,31 +4,14 @@ post_install() {
 }
 
 post_upgrade() {
-	ln -sf /usr/share/zoneinfo/Europe/Berlin "/etc/localtime"
-	echo "LANG=en_US.UTF-8" > /etc/locale.conf
-	sed 's/#en_US/en_US/' -i /etc/locale.gen
-	locale-gen
-	cp -f /usr/share/3xitlight/ssh/ssh_config "$pkgdir"/etc/ssh/ssh_config
-	cp -f /usr/share/3xitlight/ssh/sshd_config "$pkgdir"/etc/ssh/sshd_config
-	cp -f /usr/share/3xitlight/bashrc "$pkgdir"/etc/bash.bashrc
-	cp -f /usr/share/3xitlight/etc/vconsole.conf "$pkgdir"/etc/vconsole.conf
-	cp -f /usr/share/3xitlight/etc/pacman.conf "$pkgdir"/etc/pacman.conf
 	cp -r /usr/share/3xitlight/Wallpaper/ "$pkgdir"/usr/share/backgrounds/
-	cp -f /usr/share/3xitlight/qtwebflix/providers.conf "$pkgdir"/home/${USER}/.config/
-	cp -f /usr/share/3xitlight/schemas/org.mate.interface.gschema.xml "$pkgdir"/usr/share/glib-2.0/schemas/org.mate.interface.gschema.xml
-	cp -f /usr/share/3xitlight/lightdm/lightdm.conf /etc/lightdm/
-	cp -f /usr/share/3xitlight/lightdm/lightdm-gtk-greeter.conf "$pkgdir"/etc/lightdm/
-	cp -f /usr/share/3xitlight/lightdm/users.conf "$pkgdir"/etc/lightdm/
-	cp -f /usr/share/3xitlight/bashrc "$pkgdir"/home/${USER}/.bashrc
-}
+	}
 
 post_install() {
-	
-    systemctl enable --now lightdm
+	systemctl enable lightdm
     systemctl enable --now ufw
     systemctl enable --now apparmor
     systemctl disable --now avahi-daemon
-    systemctl disable --now NetworkManager-dispatcher.service
     gsettings set org.mate.interface background /usr/share/backgrounds/3xitlight/firered-polygons.jpg
     gsettings set org.mate.interface gtk-theme Abrus-dark
     gsettings set org.mate.interface icon-theme DarK

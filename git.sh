@@ -2,7 +2,7 @@
 
 echo "Updating repo database"
 repoctl update
-repoctl list 
+repoctl list
 sleep 2
 
 # checking if I have the latest files from github

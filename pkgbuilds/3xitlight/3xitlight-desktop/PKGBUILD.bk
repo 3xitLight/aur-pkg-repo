@@ -1,0 +1,391 @@
+# Maintainer: 3XITLIGHT <3xitLight@protonmail.com>
+pkgname=3xitlight-desktop
+pkgver=1.0
+pkgrel=1
+pkgdesc="Base system configuration for 3XITLIGHT systems"
+arch=('any')
+# url="https://github.com/3xitLight/aur-pkg-repo/tree/master/pkgbuilds/3xitlight/3xitlight-desktop"
+url="https://raw.githubusercontent.com/3xitLight/aur-pkg-repo/master/pkgbuilds/3xitlight/3xitlight-desktop/"
+# url="https://github.com/3xitLight/aur-pkg-repo/blob/master/pkgbuilds/3xitlight/3xitlight-desktop/3xitlight-desktop.install"
+license=('MIT')
+groups=(3xitlight)
+_rootdir=$PWD
+install=3xitlight-desktop.install
+source=('3xitlight-desktop.install'
+		'bashrc'
+		'lightdm.conf'
+		'lightdm-gtk-greeter.conf'
+		'org.mate.interface.gschema.xml'
+		'providers.conf'
+		'ssh_config'
+		'sshd_config'
+		'sudoers.d-wheel'
+		'users.conf'
+		'3xitlight.tar.gz'
+		)
+		
+sha256sums=(
+		'4bc53627390ba545e0cc58e647fdec57ba19a5833803e95e05e314d58451b67b'
+		'de9e0b1a1e2ab1a5dcbbeb21bf338d37d92d26e8a8a73ff7e58b2e51fc7a120a'	# bashrc
+		'7100cf400c22c00880de04f0d5c818844a5f7afb7835d777452ca4a756797935'	# lightdm.conf
+		'b8bc2a111852ccce5489cf013f941991e553601df8b2db30223e55313394ab88'	# lightdm-gtk-greeter.conf
+	 	'c89015ea914e55d31b9465d6a32f7bb6acc2894ea0712fbcc6acdfbe1716633d'	# org.mate.interface.gschema.xml
+		'0ab41e9bc74e6dee330e1c0b9b208ad90babe01f0e124f593a7c54e3b2499471'	# providers.conf
+		'344ccf0afec0418735fdd50f2b42dc00d986cb6c2dc21294764db3ab5fd8700b'	# ssh_config
+		'39dd495c6f3c164d60e2234d4b5d61f6808bb2f84fb7aca6775cfd82e6d34b25'	# sshd_config
+		'9db7f67e68218e51ee549cba0949aae86b6c14a48ac40b851cf76aba951f70a7'	# sudoers.d-wheel
+		'7191418d6bab271ffef66f2a221cf3d1f4dce4ea95b53d8e161116a73fbc29cb'	# users.conf
+		'b2f640f327d72b0f9d63548be32fb3427e2bf331aac8c4e6c4d3e4c43e5f2151'	# 3xitlight.tar.gz
+) 
+#'21f2003cd23592f5e58b7d41e99f3b7bc24b1e139cf447ae04e65312b828f4dd'	# 3xitlight-desktop.install
+		
+depends=(
+###############################
+#######      CUSTOM REPO	  #
+###############################
+		3xitlight-fonts
+		3xitlight-icons
+		abrus-gtk-theme-git
+		chromium-widevine
+		geany-themes-git
+		netactview
+		pamac-classic
+		protonvpn-cli-ng
+		qtwebflix-git
+		repoctl
+		rtl88xxau-aircrack-dkms-git
+		spotify
+		tilix-themes-git
+		vdhcoapp
+		yay
+		zenmap)
+		
+depends=(
+###############################
+#######       DEVEL	          #
+###############################
+		bcc
+		bcc-tools
+		python-bcc
+		archiso
+		bin86
+		boost
+		boost-libs	
+		bpf
+		ccache
+		devtools
+		jdk-openjdk
+		jre-openjdk
+		namcap
+		patch
+		pkgconf
+		pkgfile
+		squashfs-tools
+		qtcreator
+		texinfo)
+
+		
+depends=(		
+###############################
+#######       NVIDIA	      #
+###############################
+		nvidia-dkms
+		nvidia-settings
+		nvidia-utils)
+
+		
+depends=(	
+		networkmanager
+		network-manager-applet
+		networkmanager-openvpn
+		nm-connection-editor)
+
+
+depends=(
+###############################
+#######       OFFICIAL	      #
+###############################
+		android-tools
+		apparmor
+		arj
+		arp-scan
+		arptables
+		atril
+		autoconf
+		automake
+		bash
+		bash-completion
+		bc
+		binutils
+		binwalk
+		bison
+		bridge-utils
+		btrfs-progs
+		bzip2
+		cabextract
+		caja
+		caja-image-converter
+		caja-open-terminal
+		caja-sendto
+		caja-xattr-tags
+		cdrtools
+		chromium
+		ckbcomp
+		clamav
+		clamtk
+		coreutils
+		cpio
+		cpupower
+		crda
+		dconf-editor
+		dialog
+		dkms
+		dnsmasq
+		dnstracer
+		dosfstools
+		dstat
+		dtc
+		e2fsprogs
+		ebtables
+		efibootmgr
+		efitools
+		engrampa
+		eom
+		exfat-utils
+		extra-cmake-modules
+		f2fs-tools
+		fakeroot
+		fastjar
+		fcitx5-qt
+		file
+		filesystem
+		findutils
+		firefox-developer-edition
+		firejail
+		flex
+		gawk
+		gcc
+		gcc-libs
+		gnupg
+		geany
+		geany-plugins
+		gettext
+		gimp
+		glibc
+		glslang
+		gnome-disk-utility
+		gnome-logs
+		gnome-nettool
+		gobject-introspection
+		gparted
+		gpg-crypter
+		grep
+		groff
+		grub-customizer
+		gtk-engine-murrine
+		gufw
+		gvfs
+		gzip
+		haveged
+		hdparm
+		horst
+		htop
+		hwdetect
+		iftop
+		intel-ucode
+		intltool
+		iperf3
+		iproute2
+		iputils
+		jfsutils
+		kconfig
+		keybase
+		kvantum-qt5
+		ldns
+		lhasa
+		libnetfilter_acct
+		libnetfilter_cthelper
+		libnetfilter_cttimeout
+		libnetfilter_log
+		libnetfilter_queue
+		libtool
+		libvirt
+		lightdm
+		lightdm-gtk-greeter
+		lightdm-gtk-greeter-settings
+		linux-hardened
+		linux-hardened-headers
+		linux-headers
+		logwatch
+		lrzip
+		lsof
+		lvm2
+		lzip
+		m4
+		make
+		marco
+		mate-applets
+		mate-backgrounds
+		mate-calc
+		mate-control-center
+		mate-desktop
+		mate-icon-theme
+		mate-icon-theme-faenza
+		mate-media
+		mate-menus
+		mate-netbook
+		mate-notification-daemon
+		mate-panel
+		mate-polkit
+		mate-power-manager
+		mate-screensaver
+		mate-sensors-applet
+		mate-session-manager
+		mate-settings-daemon
+		mate-system-monitor
+		mate-terminal
+		mate-themes
+		mate-user-guide
+		mate-utils
+		mkinitcpio-utils
+		mobile-broadband-provider-info
+		mozo
+		mtd-utils
+		mtools
+		nano
+		net-tools
+		nftables
+		nload
+		nmap
+		ntfs-3g
+		openssh
+		openvpn
+		os-prober
+		openbsd-netcat
+		ovmf
+		p7zip
+		pacman-contrib
+		pavucontrol
+		pciutils
+		phonon-qt5-vlc
+		procps-ng
+		psmisc
+		pulseaudio
+		pulseaudio-alsa
+		pulseaudio-equalizer-ladspa
+		pv
+		pwgen
+		python
+		python-requests
+		python-capstone
+		python-opengl
+		python-pip
+		python-setuptools
+		qemu
+		qemu-arch-extra
+		qemu-block-gluster
+		qemu-block-iscsi
+		qemu-block-rbd
+		qemu-guest-agent
+		qt5-webkit
+		qt5-xmlpatterns
+		reflector
+		rsync
+		sed
+		sharutils
+		sleuthkit
+		smplayer
+		smplayer-skins
+		smplayer-themes
+		speedtest-cli
+		sysstat
+		systemd
+		systemd-sysvcompat
+		tar
+		tcpdump
+		tilix
+		time
+		traceroute
+		transmission-gtk
+		ufw
+		unrar
+		unzip
+		usb_modeswitch
+		usbutils
+		util-linux
+		vala
+		vde2
+		vlc
+		vulscan
+		wget
+		which
+		whois
+		wireless-regdb
+		wireless_tools
+		wireshark-qt
+		wpa_supplicant
+		xdg-user-dirs
+		xdialog
+		xf86-input-libinput
+		xf86-video-intel
+		xf86-video-nouveau
+		xf86-video-vesa
+		xorg-bdftopcf
+		xorg-iceauth
+		xorg-luit
+		xorg-mkfontscale
+		xorg-server
+		xorg-sessreg
+		xorg-setxkbmap
+		xorg-smproxy
+		xorg-x11perf
+		xorg-xauth
+		xorg-xbacklight
+		xorg-xcmsdb
+		xorg-xcursorgen
+		xorg-xdpyinfo
+		xorg-xdriinfo
+		xorg-xev
+		xorg-xgamma
+		xorg-xhost
+		xorg-xinit
+		xorg-xinput
+		xorg-xkbcomp
+		xorg-xkbevd
+		xorg-xkbutils
+		xorg-xkill
+		xorg-xlsatoms
+		xorg-xlsclients
+		xorg-xmodmap
+		xorg-xpr
+		xorg-xprop
+		xorg-xrandr
+		xorg-xrdb
+		xorg-xrefresh
+		xorg-xset
+		xorg-xsetroot
+		xorg-xvinfo
+		xorg-xwd
+		xorg-xwininfo
+		xorg-xwud
+		xterm
+		xz
+		yaml-cpp
+		zip)
+
+# prepare()
+# check()
+
+
+package_3xitlight-desktop() {	
+    
+	# mkdir -p "$pkgdir"/usr/share/3xitlight/
+	# cp -r "$_rootdir"/files/* "$pkgdir"/usr/share/3xitlight/
+
+	install -Dm0644 bashrc "$pkgdir"/home/${USER}/.bashrc
+	install -Dm0644 lightdm.conf "$pkgdir"/etc/lightdm/lightdm.conf
+	install -Dm0644 lightdm-gtk-greeter.conf "$pkgdir"/etc//lightdm/lightdm-gtk-greeter.conf
+	install -Dm0644 users.conf "$pkgdir"/etc/lightdm/users.conf
+	install -Dm0700 sudoers.d-wheel "$pkgdir"/etc/sudoers.d/wheel
+	chmod -R 0750 "$pkgdir/etc/sudoers.d"
+}
