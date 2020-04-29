@@ -51,6 +51,6 @@ sudo pacman -Syy
 ```
 [aur-pkg-repo]
 SigLevel = Optional TrustAll 
-Server = https://github.com/3xitLight/aur-pkg-repo/releases/download/aur-pkg-repo/
+Server = https://github.com/3xitLight/aur-pkg-repo/releases/download/2/
 # Include = /etc/pacman.d/aur-pkg-repo-list
 ```
