@@ -7,16 +7,7 @@ echo "#        Running config.sh!		 #"
 echo "####################################"
 echo
 echo
-
-sleep 3
-
-#
-wget https://github.com/3xitLight/aur-pkg-repo/raw/master/pkgbuilds/3xitlight/3xitlight-desktop/bashrc
-cp -f bashrc /home/xnn/.bashrc
-
-#
-wget https://github.com/3xitLight/aur-pkg-repo/raw/master/pkgbuilds/3xitlight/3xitlight-desktop/providers.conf
-cp -f providers.conf /home/xnn/.config/Qtwebflix/providers.conf
+sleep 2
  
 #
 gsettings set org.mate.interface gtk-theme Abrus-dark
@@ -35,5 +26,4 @@ echo "#        DONE config.sh!		 #"
 echo "####################################"
 echo
 echo
-
 sleep 3

@@ -61,7 +61,7 @@ echo
 sleep 2
 
 #
-cp -r etc_default_ufw /etc/default/ufw
+cp -r ufw /etc/default/ufw/
 systemctl enable ufw && sudo systemctl start ufw
 ufw disable
 ufw reset
