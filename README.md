@@ -4,7 +4,7 @@
 ```
 3xitarch-calamares-config
 3xitlight-desktop
-3xitlight-fonts
+3xitlight-fonts-
 3xitlight-icons
 abrus-gtk-theme-git
 bcc
@@ -15,6 +15,7 @@ ckbcomp
 geany-themes-git
 mkinitcpio-openswap
 netactview
+openvpn-update-systemd-resolved
 pamac-aur
 pamac-classic
 protonvpn-cli-ng
@@ -29,7 +30,6 @@ tilix-themes-git
 vdhcoapp
 yay
 zenmap
-
 ```
 
 #### manage with repoctl:
